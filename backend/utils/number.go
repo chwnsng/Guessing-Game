@@ -5,6 +5,9 @@ import (
 	"time"
 )
 
+// upper limit for possible guesses
+const GuessSize int = 3
+
 var secretNumber int
 var random *rand.Rand // rand.New returns a pointer
 
@@ -16,7 +19,7 @@ func init() {
 
 // generates a number between 1 to 5
 func GenerateSecretNumber() {
-	secretNumber = random.Intn(5) + 1
+	secretNumber = random.Intn(GuessSize) + 1
 }
 
 func GetSecretNumber() int {

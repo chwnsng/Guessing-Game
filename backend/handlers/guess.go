@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 
 	"github.com/chwnsng/Guessing-Game/backend/models"
@@ -21,6 +22,12 @@ func GuessHandler(w http.ResponseWriter, r *http.Request) {
 	err := dec.Decode(&req) // Decode expects a pointer to the variable we want to populate
 	if err != nil {
 		utils.RespondError(w, http.StatusBadRequest, "Invalid guess")
+		return
+	}
+
+	// check if the guess exceeds the pool of possible guesses
+	if req.Number < 1 || req.Number > utils.GuessSize {
+		utils.RespondError(w, http.StatusOK, fmt.Sprintf("Guesses should be a number between 1 and %v", utils.GuessSize))
 		return
 	}
 
