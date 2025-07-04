@@ -1,0 +1,6 @@
+# Backend
+*.exe
+.env
+
+# Frontend
+node_modules/
