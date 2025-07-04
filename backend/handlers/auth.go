@@ -27,10 +27,18 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {
 
 	// check username & pw
 	if req.Username == "test" && req.Password == "1234" {
+		// generate jwt token
+		tokenString, err := utils.CreateToken(req.Username)
+		if err != nil {
+			utils.RespondError(w, http.StatusInternalServerError, "Failed to generate token")
+			return
+		}
+
 		utils.RespondJSON(w, http.StatusOK, models.LoginResponse{
 			Message: "Log in successful!",
-			Token:   "ABCD1234",
+			Token:   tokenString,
 		})
+
 	} else {
 		utils.RespondError(w, http.StatusUnauthorized, "Username or password incorrect")
 	}

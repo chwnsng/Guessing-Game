@@ -22,6 +22,6 @@ type GuessRequest struct {
 }
 
 type GuessResponse struct {
-	Message string `json:message`
-	Correct bool   `json:correct`
+	Message string `json:"message"`
+	Correct bool   `json:"correct"`
 }
