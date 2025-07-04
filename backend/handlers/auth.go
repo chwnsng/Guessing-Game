@@ -19,7 +19,7 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {
 	// decode request body into LoginRequest struct
 	var req models.LoginRequest
 	dec := json.NewDecoder(r.Body)
-	err := dec.Decode(&req) // Decode expects a pointer to the target variable
+	err := dec.Decode(&req) // Decode expects a pointer to the variable we want to populate
 	if err != nil {
 		utils.RespondError(w, http.StatusBadRequest, "Request has invalid payload")
 		return

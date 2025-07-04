@@ -16,3 +16,12 @@ type LoginResponse struct {
 type ErrorResponse struct {
 	Message string `json:"message"`
 }
+
+type GuessRequest struct {
+	Number int `json:"number"`
+}
+
+type GuessResponse struct {
+	Message string `json:message`
+	Correct bool   `json:correct`
+}
