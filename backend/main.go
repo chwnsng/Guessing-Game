@@ -6,12 +6,14 @@ import (
 	"net/http"
 
 	"github.com/chwnsng/Guessing-Game/backend/handlers"
+	"github.com/chwnsng/Guessing-Game/backend/middleware"
 )
 
 func main() {
 	// map handlers to endpoints
 	http.HandleFunc("/login", handlers.LoginHandler)
-	http.HandleFunc("/guess", handlers.GuessHandler)
+	// wrap the guess handler in middleware
+	http.HandleFunc("/guess", middleware.AuthMiddleware(handlers.GuessHandler))
 
 	// spin up the http server
 	port := ":8080"
