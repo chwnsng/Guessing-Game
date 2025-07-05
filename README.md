@@ -9,7 +9,7 @@ git clone https://github.com/chwnsng/Guessing-Game.git
 cd Guessing-Game
 ```
 
-*2. Set up the backend*
+**2. Set up the backend**
 ```
 cd backend
 go mod tidy
@@ -17,7 +17,7 @@ go run main.go
 ```
 The backend should start on http://localhost:8080
 
-*3. Set up the frontend*
+**3. Set up the frontend**
 ```
 cd ../frontend
 npm install
