@@ -1,38 +1,117 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  min-height: 95vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+h2 {
+  font-size: calc(30px + 2vmin);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+p {
+  font-size: calc(7px + 2vmin);
+}
+
+.error {
+  justify-self: center;
+  position: relative;
+  color: #D2514B;
+}
+
+input {
+  outline: none;
+  background-color: #d1cec5;
+  color: #504d4c;
+  border-width: 3px;
+  border-color: #d1cec5;
+  border-radius: 12px;
+  padding: 8px 10px;
+  border-style: solid;
+  width: 95%;
+}
+
+input:focus {
+  border-color: #eeba2a;
+  border-width: 3px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+button {
+  transition: 300ms;
+  border-radius: 13px;
+  border-style: solid;
+  border-color: #eeba2a;
+  border-width: none;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: #eeba2a;
+  color: #373332;
+  padding: 8px 20px;
+  margin: 10px;
+}
+
+button:hover {
+  transition: 300ms;
+  background-color: #eec75b;
+  color: #514c4a;
+}
+
+.input-field {
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items:center; */
+  /* width: 20vw; */
+  margin: 20px;
+}
+
+.input-label {
+  align-self:flex-start;
+  font-size: calc(5px + 2vmin);
+  margin-right: 20px;
+  margin-bottom: 3px;
+  color: #EEBA2A
+}
+
+.guess-input {
+  width: 3vw;
+  height: 3vw;
+  font-size: calc(7px + 2vmin);
+  text-align: center;
+  margin: 20px;
+}
+
+.logout-button {
+  background-color: transparent;
+  border: none;
+  color: #EEBA2A;
+}
+
+.logout-button:hover {
+  background-color: transparent;
+  text-decoration: underline;
+  color: #EEBA2A;
+  border: none;
+}
+
+.correct {
+  width: 3vw;
+  height: 3vw;
+  text-align: center;
+  justify-self: center;
+  font-size: calc(15px + 2vmin);
 }

@@ -76,20 +76,22 @@ const GuessPage = () => {
 
   return (
     <div>
-      <h2>Guessing Game</h2>
+      <h2>Make a Guess</h2>
       {message && <p>{message}</p>}
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      {error && <p class="error">{error}</p>}
       {isCorrect ? (
         <div>
+          <p class="correct">🎉</p>
           {playAgain && <button onClick={handlePlayAgain}>Play Again</button>}
         </div>
       ) : (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} noValidate>
           <div>
-            <label htmlFor="guess">Your Guess:</label>
+            {/* <label htmlFor="guess">Your Guess:</label> */}
             <input
               type="number"
               id="guess"
+              class="guess-input"
               value={guess}
               onChange={(e) => setGuess(e.target.value)}
               required
@@ -97,10 +99,14 @@ const GuessPage = () => {
               max="3"
             />
           </div>
-          <button type="submit">Submit</button>
+          <button type="submit" class="submit-button">
+            Submit
+          </button>
         </form>
       )}
-      <button onClick={handleLogout}>Logout</button>
+      <button onClick={handleLogout} class="logout-button">
+        Logout
+      </button>
     </div>
   );
 };

@@ -28,30 +28,37 @@ const LoginPage = () => {
 
   return (
     <div>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">Username:</label>
+      <h2>Guessing Game 🤔</h2>
+      {/* <div>Login</div> */}
+      <form onSubmit={handleSubmit} autocomplete="off" noValidate>
+        <div class="input-field">
+          <label htmlFor="username" class="input-label">
+            Username
+          </label>
           <input
             type="text"
             id="username"
+            class="input-text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
           />
         </div>
-        <div>
-          <label htmlFor="password">Password:</label>
+        <div class="input-field">
+          <label htmlFor="password" class="input-label">
+            Password
+          </label>
           <input
             type="password"
             id="password"
+            class="input-text"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
         </div>
         <button type="submit">Login</button>
-        {error && <p style={{ color: "red" }}>{error}</p>}
+        {error && <p class="error">{error}</p>}
       </form>
     </div>
   );
