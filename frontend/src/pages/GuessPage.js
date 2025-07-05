@@ -78,10 +78,10 @@ const GuessPage = () => {
     <div>
       <h2>Make a Guess</h2>
       {message && <p>{message}</p>}
-      {error && <p class="error">{error}</p>}
+      {error && <p className="error">{error}</p>}
       {isCorrect ? (
         <div>
-          <p class="correct">🎉</p>
+          <p className="correct">🎉</p>
           {playAgain && <button onClick={handlePlayAgain}>Play Again</button>}
         </div>
       ) : (
@@ -91,7 +91,7 @@ const GuessPage = () => {
             <input
               type="number"
               id="guess"
-              class="guess-input"
+              className="guess-input"
               value={guess}
               onChange={(e) => setGuess(e.target.value)}
               required
@@ -100,12 +100,12 @@ const GuessPage = () => {
               autoFocus
             />
           </div>
-          <button type="submit" class="submit-button">
+          <button type="submit" className="submit-button">
             Submit
           </button>
         </form>
       )}
-      <button onClick={handleLogout} class="logout-button">
+      <button onClick={handleLogout} className="logout-button">
         Logout
       </button>
     </div>

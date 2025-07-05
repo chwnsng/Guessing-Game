@@ -30,35 +30,35 @@ const LoginPage = () => {
     <div>
       <h2>Guessing Game 🤔</h2>
       {/* <div>Login</div> */}
-      <form onSubmit={handleSubmit} autocomplete="off" noValidate>
-        <div class="input-field">
-          <label htmlFor="username" class="input-label">
+      <form onSubmit={handleSubmit} autoComplete="off" noValidate>
+        <div className="input-field">
+          <label htmlFor="username" className="input-label">
             Username
           </label>
           <input
             type="text"
             id="username"
-            class="input-text"
+            className="input-text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
           />
         </div>
-        <div class="input-field">
-          <label htmlFor="password" class="input-label">
+        <div className="input-field">
+          <label htmlFor="password" className="input-label">
             Password
           </label>
           <input
             type="password"
             id="password"
-            class="input-text"
+            className="input-text"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
         </div>
         <button type="submit">Login</button>
-        {error && <p class="error">{error}</p>}
+        {error && <p className="error">{error}</p>}
       </form>
     </div>
   );
