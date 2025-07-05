@@ -81,7 +81,6 @@ const GuessPage = () => {
       {error && <p style={{ color: "red" }}>{error}</p>}
       {isCorrect ? (
         <div>
-          <p>{message}</p>
           {playAgain && <button onClick={handlePlayAgain}>Play Again</button>}
         </div>
       ) : (

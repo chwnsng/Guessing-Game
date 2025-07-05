@@ -4,6 +4,7 @@ import { Navigate, Routes, Route, useNavigate } from "react-router-dom";
 import { AuthProvider, useAuth } from "./context/AuthContext";
 import LoginPage from "./pages/LoginPage";
 import GuessPage from "./pages/GuessPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated } = useAuth();
@@ -30,6 +31,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/" element={<LoginPage />} />
           <Route
             path="/guess"
             element={
@@ -38,8 +40,7 @@ function App() {
               </ProtectedRoute>
             }
           />
-          {/* Redirect any other pages to /guess if authenticated, else /login */}
-          {/* <Route path="*" element={<Navigate to="/guess" replace />} /> */}
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
     </AuthProvider>
