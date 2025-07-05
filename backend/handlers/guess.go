@@ -10,6 +10,7 @@ import (
 )
 
 func GuessHandler(w http.ResponseWriter, r *http.Request) {
+
 	// only allow POST for guessing
 	if r.Method != http.MethodPost {
 		utils.RespondError(w, http.StatusMethodNotAllowed, "Method not allowed")

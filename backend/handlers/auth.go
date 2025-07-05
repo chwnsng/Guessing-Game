@@ -10,15 +10,9 @@ import (
 
 // main login logic
 func LoginHandler(w http.ResponseWriter, r *http.Request) {
-	// fix CORS policy error
-	w.Header().Set("Access-Control-Allow-Origin", "http://localhost:3000")
-	w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
 
-	// Allow OPTIONS and POST methods
-	if r.Method == http.MethodOptions {
-		w.WriteHeader(http.StatusOK)
-		return
-	} else if r.Method != http.MethodPost {
+	// Only allows POST for guessing
+	if r.Method != http.MethodPost {
 		utils.RespondError(w, http.StatusMethodNotAllowed, "Method not allowed")
 		return
 	}
