@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext"; // import the custom hook
 
@@ -10,17 +10,17 @@ const LoginPage = () => {
   const navigate = useNavigate();
 
   // Redirect to guess page if authenticated
-  if (isAuthenticated) {
-    navigate("/guess");
-    return null;
-  }
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/guess", { replace: true });
+    }
+  }, [isAuthenticated, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(""); // clearing previous errors
     try {
       await login(username, password);
-      navigate("/guess");
     } catch (err) {
       setError(err.message || "An unexpected error occured during login");
     }
