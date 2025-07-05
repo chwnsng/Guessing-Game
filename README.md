@@ -34,7 +34,7 @@ The frontend should start on http://localhost:3000. Please use these sample logi
 **Overall flow**
 1. The application starts in main.go, which configures a server with CORS enabled and waits for requests from the frontend.
 
-2. Requests to **/login** is passed to the `LoginHandler` function defined in auth.go. If successful, LoginHandler calls `CreateToken` to create a jwt token, then calls `RespondJson` to send it back. Else, it calls `RespondError` so send back the error.
+2. Requests to **/login** is passed to the `LoginHandler` function defined in auth.go. If successful, LoginHandler calls `CreateToken` to create a jwt token, then calls `RespondJson` to send it back. Else, it calls `RespondError` to send back the error.
 
 3. Requests to **/guess** first goes to `AuthMiddleware` (defined in authmdw.go). This middleware calls `VerifyToken` in jwt.go to validate the Authorization header. If the token is valid, AuthMiddleware passes the request to `GuessHandler`.
 
