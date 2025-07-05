@@ -97,6 +97,7 @@ const GuessPage = () => {
               required
               min="1"
               max="3"
+              autoFocus
             />
           </div>
           <button type="submit" class="submit-button">
